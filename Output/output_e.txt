@@ -1,0 +1,3 @@
+PRINT-ALL ?t1 (TRAIN ?t1)(ATIME ?t1 Huế 2000HR)(RUN-TIME ?t1 ?t2 Huế ?t3)
+PRINT-ALL ?t4 (TRAIN B3)(ATIME B3 Huế ?t5)(DTIME B3 Đà_Nẵng ?t6)(RUN-TIME B3 Đà_Nẵng Huế ?t4)
+PRINT-ALL ?t7 (TRAIN ?t7)(ATIME ?t7 Hồ_Chí_Minh ?t8)(RUN-TIME ?t7 ?t9 Hồ_Chí_Minh ?t10)

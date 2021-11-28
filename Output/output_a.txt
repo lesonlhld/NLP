@@ -1,0 +1,3 @@
+{('Xe_bus', 'nào'): 'WH-TRAIN', ('đến', 'Xe_bus'): 'LSUBJ', ('<ROOT>', 'đến'): 'PRED', ('đến', 'thành_phố'): 'TO-LOC', ('thành_phố', 'Huế'): 'CITY-NAME', ('đến', 'lúc'): 'PREP-TIME', ('lúc', '2000HR'): 'TO-TIME'}
+{('xe', 'B3'): 'TRAIN-NAME', ('từ', 'Đà_Nẵng'): 'CITY-NAME', ('đến', 'từ'): 'PREP', ('đến', 'xe'): 'LSUBJ', ('đến', 'Thời_gian'): 'RUN-TIME', ('<ROOT>', 'đến'): 'PRED', ('đến', 'Huế'): 'CITY-NAME'}
+{('Xe_bus', 'nào'): 'WH-TRAIN', ('đến', 'Xe_bus'): 'LSUBJ', ('<ROOT>', 'đến'): 'PRED', ('đến', 'thành_phố'): 'TO-LOC', ('thành_phố', 'Hồ_Chí_Minh'): 'CITY-NAME'}
