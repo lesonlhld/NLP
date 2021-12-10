@@ -12,7 +12,7 @@ def extract_relation(relation):
 
     return relation_type, left_component, right_component
 
-def gr2lf(relations):
+def logicalForm(relations):
     logical_form = ""
     variables = {}
     for rel in relations:
@@ -26,15 +26,25 @@ def gr2lf(relations):
             continue
         elif rel_type == 'LSUBJ':
             vtype, vname, vvalue = right.split()
-            variables[vname] = {'type': vtype, 'value': vvalue};
+            variables[vname] = {'type': vtype, 'value': vvalue}
             logical_form = logical_form[:-1] + f"[AGENT ({right})]" + logical_form[-1]
         else:
             vtype, vname, vvalue = right.split()
             variables[vname] = {'type': rel_type, 'value': vvalue}
             logical_form = logical_form[:-1] + f"[{rel_type} ({right})]" + logical_form[-1]
 
+    has_gap = False
     for vname in variables:
         if variables[vname]['value'] == 'GAP':
-            logical_form = 'WH-' + variables[vname]['type'] + logical_form
+            has_gap = True
+            logical_form = 'WH-' + variables[vname]['type'] + ' ' + logical_form
+
+    if not has_gap:
+        logical_form = 'YESNO-WH ' + logical_form
+        
+    fileName = "./Output/output_d.txt"
+    output = open(fileName,"a")
+    output.write(str(logical_form))
+    output.write("\n")
 
     return logical_form
