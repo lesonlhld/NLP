@@ -1,5 +1,5 @@
 from underthesea import word_tokenize
-from Models.token import token_type
+from Models.helper import *
 from copy import deepcopy
 
 relations = {
@@ -7,7 +7,7 @@ relations = {
     'train': {'run': 'LSUBJ', 'time': 'TIME'},
     'arrive': {'run': 'PREP'},
     'from': {'run': 'PREP'},
-    'time': {'from': 'FROM-TIME', 'arrive': 'PREP-TIME', 'train': 'RUN-TIME'},
+    'time': {'from': 'FROM-TIME', 'arrive': 'ARRIVE-TIME', 'train': 'RUN-TIME'},
     'hour': {'time': 'TIME'},
     'city': {'from': 'FROM-LOC', 'arrive': 'TO-LOC'},
     'name': {'city': 'CITY-NAME', 'from': 'CITY-NAME', 'arrive': 'CITY-NAME', 'train': 'TRAIN-NAME'},
@@ -15,7 +15,7 @@ relations = {
     'yesno': {'run': 'YESNO-WH'},
 }
 
-def preprocess(sentence):
+def prepare(sentence):
     remove_tokens = ['là mấy giờ', 'thành phố', 'TP', 'có', '?', '.', ':', ',']
     for token in remove_tokens:
         sentence = sentence.replace(token, '')
@@ -27,8 +27,8 @@ def preprocess(sentence):
     return sentence
 
 def getAction(stack, buffer):
-    left_type = token_type(stack[-1])
-    right_type = token_type(buffer[0])
+    left_type = getType(stack[-1])
+    right_type = getType(buffer[0])
     if left_type in relations and right_type in relations[left_type]:
         return 'LA'
     elif right_type in relations and left_type in relations[right_type]:
@@ -36,19 +36,19 @@ def getAction(stack, buffer):
     else:
         if left_type == '<ROOT>':
             for token in buffer:
-                if left_type in relations[token_type(token)]:
+                if left_type in relations[getType(token)]:
                     return 'SHIFT'
         else:
-            if left_type in relations[token_type(buffer[0])]:
+            if left_type in relations[getType(buffer[0])]:
                 return 'SHIFT'
         if left_type in relations:
             for token in buffer:
-                if token_type(token) in relations[left_type]:
+                if getType(token) in relations[left_type]:
                     return 'SHIFT'
         return 'REDUCE'
             
 def maltParser(sentence):
-    sentence = preprocess(sentence)
+    sentence = prepare(sentence)
     tokens = word_tokenize(sentence)
 
     for i in range(len(tokens)):
@@ -70,14 +70,14 @@ def maltParser(sentence):
     while len(buffer) > 0:
         action = getAction(stack, buffer)
         if action == 'LA':
-            arcs[(deepcopy(buffer[0]), deepcopy(stack[-1]))] = relations[token_type(stack[-1])][token_type(buffer[0])]
+            arcs[(deepcopy(buffer[0]), deepcopy(stack[-1]))] = relations[getType(stack[-1])][getType(buffer[0])]
             stack.pop()
         elif action == 'RA':
-            arcs[(deepcopy(stack[-1]), deepcopy(buffer[0]))] = relations[token_type(buffer[0])][token_type(stack[-1])]
+            arcs[(deepcopy(stack[-1]), deepcopy(buffer[0]))] = relations[getType(buffer[0])][getType(stack[-1])]
             token = buffer.pop(0)
             is_remove = True
             for dependant in relations:
-                if token_type(token) in relations[dependant]:
+                if getType(token) in relations[dependant]:
                     is_remove = False
             if not is_remove:
                 stack.append(token)

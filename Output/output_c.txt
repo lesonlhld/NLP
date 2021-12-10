@@ -1,0 +1,8 @@
+['(x1 PRED chạy)', '(x1 LSUBJ (TRAIN-NAME x2 GAP))', '(x1 TO-LOC (CITY-NAME x3 Huế))', '(x1 TIME (TIME x4 1900HR))']
+['(x5 PRED chạy)', '(x5 TIME (TIME x6 GAP))', '(x5 LSUBJ (TRAIN-NAME x7 B3))', '(x5 FROM-LOC (CITY-NAME x8 Đà_Nẵng))', '(x5 TO-LOC (CITY-NAME x9 Hồ_Chí_Minh))']
+['(x10 PRED chạy)', '(x10 LSUBJ (TRAIN-NAME x11 GAP))', '(x10 TO-LOC (CITY-NAME x12 Hồ_Chí_Minh))']
+['(x13 PRED chạy)', '(x13 LSUBJ (TRAIN-NAME x14 GAP))', '(x13 FROM-LOC (CITY-NAME x15 Hà_Nội))', '(x13 TIME (TIME x16 GAP))']
+['(x17 PRED chạy)', '(x17 LSUBJ (TRAIN-NAME x18 GAP))', '(x17 FROM-LOC (CITY-NAME x19 Hồ_Chí_Minh))', '(x17 TO-LOC (CITY-NAME x20 Hà_Nội))']
+['(x21 PRED chạy)', '(x21 LSUBJ (TRAIN-NAME x22 B5))', '(x21 FROM-LOC (CITY-NAME x23 Đà_Nẵng))']
+['(x24 PRED chạy)', '(x24 LSUBJ (TRAIN-NAME x25 B3))', '(x24 FROM-LOC (CITY-NAME x26 Đà_Nẵng))', '(x24 TIME (TIME x27 GAP))']
+['(x28 PRED chạy)', '(x28 LSUBJ (TRAIN-NAME x29 B2))', '(x28 FROM-LOC (CITY-NAME x30 Hà_Nội))']

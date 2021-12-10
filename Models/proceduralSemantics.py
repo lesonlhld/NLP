@@ -1,4 +1,4 @@
-from Models.variableutil import create_variable
+from Models.helper import *
 
 def proceduralSemantics(logical_form):
     lf_components = logical_form[logical_form.index('('):][1:-1].split('[')
@@ -33,7 +33,7 @@ def proceduralSemantics(logical_form):
     for f in fields:
         if fields[f] == 'GAP':
             has_gap = True
-            fields[f] = create_variable('t')
+            fields[f] = generateVariable('t')
             ps += f"?{fields[f]} "
 
     if has_gap:
@@ -47,7 +47,7 @@ def proceduralSemantics(logical_form):
             ps += f" {dataset['DATA'][column]}"
         else:
             if column not in fields:
-                fields[column] = create_variable('t')
+                fields[column] = generateVariable('t')
             ps += f" ?{fields[column]}"
     ps += f")"
 

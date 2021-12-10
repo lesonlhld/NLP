@@ -1,5 +1,4 @@
-from Models.variableutil import create_variable
-from Models.token import token_type
+from Models.helper import *
 
 def grammaticalRelation(arcs):
     tree = {}
@@ -15,7 +14,7 @@ def grammaticalRelation(arcs):
         elif item_type == 'TIME':
             tree['TIME'] = child
         elif item_type == 'CITY-NAME':
-            if token_type(parent) == 'arrive':
+            if getType(parent) == 'arrive':
                 tree['TO-LOC'] = child
             else:
                 tree['FROM-LOC'] = child
@@ -30,7 +29,7 @@ def grammaticalRelation(arcs):
     variables = {}
     for rel_type in tree:
         if rel_type == 'PRED':
-            variable = create_variable()
+            variable = generateVariable()
             variables[tree[rel_type]] = variable
             relation = f"({variable} PRED {tree[rel_type]})"
             relations.append(relation)
@@ -39,7 +38,7 @@ def grammaticalRelation(arcs):
     for rel_type in tree:
         if rel_type == 'PRED':
             continue
-        variable = create_variable()
+        variable = generateVariable()
         variables[tree[rel_type]] = variable
        
         if rel_type == 'RUN-TIME':

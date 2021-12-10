@@ -1,0 +1,8 @@
+{('tàu_hỏa', 'nào'): 'WH-TRAIN', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'đến'): 'PREP', ('đến', 'Huế'): 'CITY-NAME', ('đến', 'lúc'): 'ARRIVE-TIME', ('lúc', '1900HR'): 'TIME'}
+{('tàu_hỏa', 'Thời_gian'): 'RUN-TIME', ('tàu_hỏa', 'B3'): 'TRAIN-NAME', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'từ'): 'PREP', ('từ', 'Đà_Nẵng'): 'CITY-NAME', ('chạy', 'đến'): 'PREP', ('đến', 'Hồ_Chí_Minh'): 'CITY-NAME'}
+{('tàu_hỏa', 'nào'): 'WH-TRAIN', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'đến'): 'PREP', ('đến', 'Hồ_Chí_Minh'): 'CITY-NAME'}
+{('tàu_hỏa', 'nào'): 'WH-TRAIN', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'từ'): 'PREP', ('từ', 'Hà_Nội'): 'CITY-NAME', ('từ', 'lúc'): 'FROM-TIME', ('lúc', 'mấy_giờ'): 'WH-TIME'}
+{('tàu_hỏa', 'nào'): 'WH-TRAIN', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'từ'): 'PREP', ('từ', 'Hồ_Chí_Minh'): 'CITY-NAME', ('chạy', 'đến'): 'PREP', ('đến', 'Hà_Nội'): 'CITY-NAME'}
+{('tàu_hỏa', 'B5'): 'TRAIN-NAME', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'từ'): 'PREP', ('từ', 'Đà_Nẵng'): 'CITY-NAME', ('chạy', 'không'): 'YESNO-WH'}
+{('tàu_hỏa', 'B3'): 'TRAIN-NAME', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'từ'): 'PREP', ('từ', 'Đà_Nẵng'): 'CITY-NAME', ('từ', 'lúc'): 'FROM-TIME', ('lúc', 'mấy_giờ'): 'WH-TIME'}
+{('tàu_hỏa', 'B2'): 'TRAIN-NAME', ('chạy', 'tàu_hỏa'): 'LSUBJ', ('<ROOT>', 'chạy'): 'PRED', ('chạy', 'từ'): 'PREP', ('từ', 'Hà_Nội'): 'CITY-NAME', ('chạy', 'không'): 'YESNO-WH'}

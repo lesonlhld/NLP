@@ -1,0 +1,8 @@
+PRINT-ALL ?t1 (ATIME ?t1 Huế 1900HR)
+PRINT-ALL ?t2 (RUN-TIME B3 Đà_Nẵng Hồ_Chí_Minh ?t2)
+PRINT-ALL ?t3 (ATIME ?t3 Hồ_Chí_Minh)
+PRINT-ALL ?t4 ?t5 (DTIME ?t4 Hà_Nội ?t5)
+PRINT-ALL ?t6 (RUN-TIME ?t6 Hồ_Chí_Minh Hà_Nội)
+CHECK (DTIME B5 Đà_Nẵng)
+PRINT-ALL ?t7 (DTIME B3 Đà_Nẵng ?t7)
+CHECK (DTIME B2 Hà_Nội)

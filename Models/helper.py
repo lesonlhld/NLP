@@ -11,7 +11,7 @@ token_types = {
     'hour': ['hour'],
 }
 
-def token_type(token):
+def getType(token):
     for token_type in token_types:
         if token in token_types[token_type]:
             return token_type
@@ -20,3 +20,17 @@ def token_type(token):
     if token == '<ROOT>':
         return token
     return '<UNKNOWN>'
+
+def variable_decorator(func):
+    def wrapper(variable_name = 'x'):
+        if variable_name not in wrapper.variable_count:
+            wrapper.variable_count[variable_name] = 1
+        else:
+            wrapper.variable_count[variable_name] += 1
+        return func(variable_name) + str(wrapper.variable_count[variable_name])
+    wrapper.variable_count = {}
+    return wrapper
+
+@variable_decorator
+def generateVariable(variable_name):
+  return variable_name
