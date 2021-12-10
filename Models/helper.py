@@ -5,6 +5,7 @@ token_types = {
     'arrive': ['đến', 'tới'],
     'from': ['từ'],
     'which': ['nào', 'mấy_giờ'],
+    'where': ['đâu'],
     'yesno': ['không'],
     'time': ['lúc', 'vào_lúc', 'từ_lúc', 'Thời_gian', 'thời_gian'],
     'name': ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'HUE', 'HCM', 'HCMC', 'HN', 'DANANG', 'Hồ_Chí_Minh', 'Hà_Nội', 'Huế', 'Đà_Nẵng', 'Nha_Trang', 'NTrang'],

@@ -12,6 +12,7 @@ relations = {
     'city': {'from': 'FROM-LOC', 'arrive': 'TO-LOC'},
     'name': {'city': 'CITY-NAME', 'from': 'CITY-NAME', 'arrive': 'CITY-NAME', 'train': 'TRAIN-NAME'},
     'which': {'train': 'WH-TRAIN', 'time': 'WH-TIME'},
+    'where': {'from': 'WHERE', 'arrive': 'WHERE'},
     'yesno': {'run': 'YESNO-WH'},
 }
 

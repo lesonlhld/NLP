@@ -6,3 +6,6 @@
 ['(x21 PRED chạy)', '(x21 NSUBJ (TRAIN-NAME x22 B5))', '(x21 FROM-LOC (CITY-NAME x23 Đà_Nẵng))']
 ['(x24 PRED chạy)', '(x24 NSUBJ (TRAIN-NAME x25 B3))', '(x24 FROM-LOC (CITY-NAME x26 Đà_Nẵng))', '(x24 TIME (TIME x27 GAP))']
 ['(x28 PRED chạy)', '(x28 NSUBJ (TRAIN-NAME x29 B2))', '(x28 FROM-LOC (CITY-NAME x30 Hà_Nội))']
+['(x31 PRED chạy)', '(x31 NSUBJ (TRAIN-NAME x32 B5))', '(x31 FROM-LOC (CITY-NAME x33 GAP))']
+['(x34 PRED chạy)', '(x34 NSUBJ (TRAIN-NAME x35 B5))', '(x34 TO-LOC (CITY-NAME x36 GAP))']
+['(x37 PRED chạy)', '(x37 NSUBJ (TRAIN-NAME x38 B5))', '(x37 FROM-LOC (CITY-NAME x39 GAP))', '(x37 TO-LOC (CITY-NAME x40 GAP))']

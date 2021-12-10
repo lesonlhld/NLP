@@ -1,7 +1,19 @@
 # Bài tập lớn xử lý ngôn ngữ tự nhiên HK211
 
 ## Thông tin chương trình:
-* Ngôn ngữ: Python
+1. Ngôn ngữ: Python
+2. Hỗ trợ các câu hỏi dạng như:
+    * Tàu hỏa nào đến thành phố Huế lúc 19:00HR ?
+    * Thời gian tàu hỏa B3 chạy từ Đà Nẵng đến TP. Hồ Chí Minh là mấy giờ?
+    * Tàu hỏa nào đến thành phố Hồ Chí Minh ?
+    * Tàu hỏa nào chạy từ Hà Nội, lúc mấy giờ
+    * Tàu hỏa nào chạy từ TP.Hồ Chí Minh đến Hà Nội ?
+    * Tàu hỏa B5 có chạy từ Đà Nẵng không ?
+    * Tàu hỏa B3 chạy từ Đà Nẵng lúc mấy giờ ?
+    * Tàu hỏa B2 có chạy từ Hà Nội không ?
+    * Tàu hỏa B5 chạy từ đâu ?
+    * Tàu hỏa B5 chạy đến đâu ?
+    * Tàu hỏa B5 chạy từ đâu đến đâu ?
 
 ## Hướng dẫn sử dụng:
 * Cài đặt thư viện underthesea

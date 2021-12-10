@@ -6,3 +6,6 @@
 [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), CITY-NAME(từ->Đà_Nẵng), YESNO-WH(chạy->không)]
 [TRAIN-NAME(tàu_hỏa->B3), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), CITY-NAME(từ->Đà_Nẵng), FROM-TIME(từ->lúc), WH-TIME(lúc->mấy_giờ)]
 [TRAIN-NAME(tàu_hỏa->B2), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), CITY-NAME(từ->Hà_Nội), YESNO-WH(chạy->không)]
+[TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), WHERE(từ->đâu)]
+[TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->đến), WHERE(đến->đâu)]
+[TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), WHERE(từ->đâu), PREP(chạy->đến), WHERE(đến->đâu)]

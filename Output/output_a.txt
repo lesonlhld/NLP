@@ -88,3 +88,33 @@ RA     ['<ROOT>', 'chạy', 'từ']                 ['không']                  
 REDUCE ['<ROOT>', 'chạy']                       ['không']                                                                        [TRAIN-NAME(tàu_hỏa->B2), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), CITY-NAME(từ->Hà_Nội)]
 RA     ['<ROOT>', 'chạy']                       []                                                                               [TRAIN-NAME(tàu_hỏa->B2), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), CITY-NAME(từ->Hà_Nội), YESNO-WH(chạy->không)]
 
+Action Stack                                    Buffer                                                                           Arcs
+       ['<ROOT>']                               ['tàu_hỏa', 'B5', 'chạy', 'từ', 'đâu']                                           []
+SHIFT  ['<ROOT>', 'tàu_hỏa']                    ['B5', 'chạy', 'từ', 'đâu']                                                      []
+RA     ['<ROOT>', 'tàu_hỏa']                    ['chạy', 'từ', 'đâu']                                                            [TRAIN-NAME(tàu_hỏa->B5)]
+LA     ['<ROOT>']                               ['chạy', 'từ', 'đâu']                                                            [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa)]
+RA     ['<ROOT>', 'chạy']                       ['từ', 'đâu']                                                                    [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy)]
+RA     ['<ROOT>', 'chạy', 'từ']                 ['đâu']                                                                          [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ)]
+RA     ['<ROOT>', 'chạy', 'từ']                 []                                                                               [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), WHERE(từ->đâu)]
+
+Action Stack                                    Buffer                                                                           Arcs
+       ['<ROOT>']                               ['tàu_hỏa', 'B5', 'chạy', 'đến', 'đâu']                                          []
+SHIFT  ['<ROOT>', 'tàu_hỏa']                    ['B5', 'chạy', 'đến', 'đâu']                                                     []
+RA     ['<ROOT>', 'tàu_hỏa']                    ['chạy', 'đến', 'đâu']                                                           [TRAIN-NAME(tàu_hỏa->B5)]
+LA     ['<ROOT>']                               ['chạy', 'đến', 'đâu']                                                           [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa)]
+RA     ['<ROOT>', 'chạy']                       ['đến', 'đâu']                                                                   [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy)]
+RA     ['<ROOT>', 'chạy', 'đến']                ['đâu']                                                                          [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->đến)]
+RA     ['<ROOT>', 'chạy', 'đến']                []                                                                               [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->đến), WHERE(đến->đâu)]
+
+Action Stack                                    Buffer                                                                           Arcs
+       ['<ROOT>']                               ['tàu_hỏa', 'B5', 'chạy', 'từ', 'đâu', 'đến', 'đâu']                             []
+SHIFT  ['<ROOT>', 'tàu_hỏa']                    ['B5', 'chạy', 'từ', 'đâu', 'đến', 'đâu']                                        []
+RA     ['<ROOT>', 'tàu_hỏa']                    ['chạy', 'từ', 'đâu', 'đến', 'đâu']                                              [TRAIN-NAME(tàu_hỏa->B5)]
+LA     ['<ROOT>']                               ['chạy', 'từ', 'đâu', 'đến', 'đâu']                                              [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa)]
+RA     ['<ROOT>', 'chạy']                       ['từ', 'đâu', 'đến', 'đâu']                                                      [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy)]
+RA     ['<ROOT>', 'chạy', 'từ']                 ['đâu', 'đến', 'đâu']                                                            [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ)]
+RA     ['<ROOT>', 'chạy', 'từ']                 ['đến', 'đâu']                                                                   [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), WHERE(từ->đâu)]
+REDUCE ['<ROOT>', 'chạy']                       ['đến', 'đâu']                                                                   [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), WHERE(từ->đâu)]
+RA     ['<ROOT>', 'chạy', 'đến']                ['đâu']                                                                          [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), WHERE(từ->đâu), PREP(chạy->đến)]
+RA     ['<ROOT>', 'chạy', 'đến']                []                                                                               [TRAIN-NAME(tàu_hỏa->B5), NSUBJ(chạy->tàu_hỏa), PRED(ROOT->chạy), PREP(chạy->từ), WHERE(từ->đâu), PREP(chạy->đến), WHERE(đến->đâu)]
+

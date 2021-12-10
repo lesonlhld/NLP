@@ -18,12 +18,17 @@ def grammaticalRelation(arcs):
                 tree['TO-LOC'] = child
             else:
                 tree['FROM-LOC'] = child
-        elif item_type == 'WH-RUN-TIME' or item_type == 'RUN-TIME':
+        elif item_type == 'RUN-TIME':
             tree['RUN-TIME'] = 'GAP'
         elif item_type == 'WH-TRAIN':
             tree['NSUBJ'] = 'GAP'
         elif item_type == 'WH-TIME':
             tree['TIME'] = 'GAP'
+        elif item_type == 'WHERE':
+            if getType(parent) == 'arrive':
+                tree['TO-LOC'] = 'GAP'
+            else:
+                tree['FROM-LOC'] = 'GAP'
 
     relations = []
     variables = {}
