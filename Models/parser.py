@@ -4,7 +4,7 @@ from copy import deepcopy
 
 relations = {
     'run': {'<ROOT>': 'PRED'},
-    'train': {'run': 'LSUBJ', 'time': 'TIME'},
+    'train': {'run': 'NSUBJ', 'time': 'TIME'},
     'arrive': {'run': 'PREP'},
     'from': {'run': 'PREP'},
     'time': {'from': 'FROM-TIME', 'arrive': 'ARRIVE-TIME', 'train': 'RUN-TIME'},
@@ -47,7 +47,7 @@ def getAction(stack, buffer):
                     return 'SHIFT'
         return 'REDUCE'
             
-def maltParser(sentence):
+def parser(sentence):
     sentence = prepare(sentence)
     tokens = word_tokenize(sentence)
 
@@ -66,7 +66,7 @@ def maltParser(sentence):
     arcs = {}
 
     parsing = "{0:6} {1:40} {2:80} {3}\n".format("Action","Stack","Buffer","Arcs")
-    parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format("",str(stack),str(buffer),str(arcs))
+    parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format("",str(stack),str(buffer),str([arcs[x]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
     while len(buffer) > 0:
         action = getAction(stack, buffer)
         if action == 'LA':
@@ -87,15 +87,16 @@ def maltParser(sentence):
         else:
             stack.pop()
             
-        parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format(str(action),str(stack),str(buffer),str(arcs))
+        parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format(str(action),str(stack),str(buffer),str([arcs[x]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
         
     fileName = "./Output/output_a.txt"
     output = open(fileName,"a")
     output.write(str(parsing))
+    output.write("\n")
 
     fileName = "./Output/output_b.txt"
     output = open(fileName,"a")
-    output.write(str(arcs))
+    output.write(str([arcs[x]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
     output.write("\n")
 
     return arcs

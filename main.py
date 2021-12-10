@@ -1,4 +1,4 @@
-from Models.maltParser import maltParser
+from Models.parser import parser
 from Models.grammaticalRelation import grammaticalRelation
 from Models.logicalForm import logicalForm
 from Models.proceduralSemantics import proceduralSemantics
@@ -11,7 +11,7 @@ with open('./Input/questions.txt', 'r') as f:
 
 def main():
     for q in questions:
-        arcs = maltParser(q)  # Văn phạm phụ thuộc và quan hệ ngữ nghĩa
+        arcs = parser(q)  # Văn phạm phụ thuộc và quan hệ ngữ nghĩa
         grammarical_relation = grammaticalRelation(arcs)  # Quan hệ văn phạm
         logical_form = logicalForm(grammarical_relation)  # Dạng luận lý
         ps = proceduralSemantics(logical_form)  # Ngữ nghĩa thủ tục

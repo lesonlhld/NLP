@@ -63,7 +63,6 @@ def query(ps):
             if len(table) == 0:
                 continue
 
-            result = []
             all_unmatch = True
             for row in database:
                 match = 0
@@ -77,7 +76,7 @@ def query(ps):
 
     fileName = "./Output/output_f.txt"
     output = open(fileName,"a")
-    output.write(str(', '.join(result)))
+    output.write(str(', '.join(results)))
     output.write("\n")
 
     return results

@@ -10,7 +10,7 @@ def grammaticalRelation(arcs):
         if item_type == 'PRED':
             tree['PRED'] = child
         elif item_type == 'TRAIN-NAME':
-            tree['LSUBJ'] = child
+            tree['NSUBJ'] = child
         elif item_type == 'TIME':
             tree['TIME'] = child
         elif item_type == 'CITY-NAME':
@@ -21,7 +21,7 @@ def grammaticalRelation(arcs):
         elif item_type == 'WH-RUN-TIME' or item_type == 'RUN-TIME':
             tree['RUN-TIME'] = 'GAP'
         elif item_type == 'WH-TRAIN':
-            tree['LSUBJ'] = 'GAP'
+            tree['NSUBJ'] = 'GAP'
         elif item_type == 'WH-TIME':
             tree['TIME'] = 'GAP'
 
@@ -45,7 +45,7 @@ def grammaticalRelation(arcs):
             relation = f"({variables[tree['PRED']]} TIME (TIME {variable} GAP))"
         else:
             tk_type = None
-            if rel_type == 'LSUBJ':
+            if rel_type == 'NSUBJ':
                 tk_type = 'TRAIN-NAME'
             elif rel_type == 'TO-LOC' or rel_type == 'FROM-LOC':
                 tk_type = 'CITY-NAME'

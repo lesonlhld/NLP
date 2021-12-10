@@ -1,33 +1,35 @@
-# Simple Vietnamese train answering system
-[github link](https://github.com/buingohoanglong/NLP-assignment)
+# Bài tập lớn xử lý ngôn ngữ tự nhiên HK211
 
-## Project structure
-1. **Input** folder:
-    * questions.txt: contains questions to ask the system, each line is a question.
-    * train_dataset.txt: store train with format (TRAIN \<TRAIN-NAME>)
-    * atime_dataset.txt: store train arrival information with format (ATIME \<TRAIN-NAME> \<TO-LOC> \<TO-TIME>)
-    * dtime_dataset.txt: store train departure information with format (DTIME \<TRAIN-NAME> \<FROM-LOC> \<FROM-TIME>)
-    * runtime_datset.txt: store train trip information with format (RUN-TIME \<TRAIN-NAME> \<FROM-LOC> \<TO-LOC> \<RUNTIME>)
-2. **Output** folder:
-    * output_a.txt: depency trees from malt parser
-    * output_c.txt: grammatical relations
-    * output_d.txt: logical forms
-    * output_e.txt: procedural semamtics
-    * output_f.txt: answers for each questions in Input/questions.txt
-3. **Models** folder:
-    * parser.py: malt parser, generate dependency tree from raw question
-    * gr.py: generate grammatical relation from dependency tree
-    * lf.py: generate logical form from grammatical relation
-    * ps.py: generate procedural sementic from logical form
-    * query.py: use procedural sementic to query data in datasets
-    * token.py: define token's type
-    * dependency.py: define dependent relation between token types
-    * variableutil.py: provide utilities for creating unique variable's name
-    * fileutil.py: provide utilities for loading and saving files
-4. **main.py**: entry of program
+## Thông tin chương trình:
+* Ngôn ngữ: Python
 
-## Run project:
-`python3 main.py`
+## Hướng dẫn sử dụng:
+* Cài đặt thư viện underthesea
+```
+pip install underthesea
+```
 
-## Author:
-[buingohoanglong](https://github.com/buingohoanglong/)
+* Chạy chương trình
+```
+python main.py
+```
+
+## Cấu trúc thư mục
+1. Thư mục **Input**: Các yêu cầu đầu vào của bài toán
+    * `questions.txt`: Chứa danh sách các câu hỏi, mỗi câu nằm trên 1 dòng.
+    * `database.txt`: Chứa cơ sở dữ liệu của các chuyến tàu hỏa.
+2. Thư mục **Output**: Kết quả thực thi của mỗi câu hỏi
+    * `output_a.txt`: Văn phạm phụ thuộc
+    * `output_b.txt`: Quan hệ ngữ nghĩa
+    * `output_c.txt`: Quan hệ văn phạm
+    * `output_d.txt`: Dạng luận lý
+    * `output_e.txt`: Ngữ nghĩa thủ tục
+    * `output_f.txt`: Truy xuất dữ liệu
+3. Thư mục **Models**: Các lớp phụ trợ để thực thi bài toán
+    * `grammaticalRelation.py`: Chứa class tạo quan hệ ngữ nghĩa
+    * `helper.py`: Chứa các hàm hỗ trợ
+    * `logicalForm.py`: Chứa class tạo dạng luận lý
+    * `maltParser.py`: Chứa class tạo văn phạm phụ thuộc dạng malt parser
+    * `proceduralSemantics.py`: Chứa class tạo ngữ nghĩa thủ tục
+    * `query.py`: Chứa class truy xuất dữ liệu
+4. File `main.py`: Entry point của chương trình
