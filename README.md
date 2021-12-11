@@ -45,3 +45,8 @@ python main.py
     * `proceduralSemantics.py`: Chứa class tạo ngữ nghĩa thủ tục
     * `query.py`: Chứa class truy xuất dữ liệu
 4. File `main.py`: Entry point của chương trình
+
+## Tài liệu tham khảo
+1. [THƯ VIỆN TỰ HỌC DEEP LEARNING NATURAL LANGUAGE PROCESSING (NLP)](https://hoctructuyen123.net/thu-vien-tu-hoc-deep-learning-natural-language-processing-nlp/)
+2. [Underthesea là gì?](https://github-wiki-see.page/m/undertheseanlp/underthesea/wiki/Câu-chuyện-của-underthesea)
+3. [Open-source Vietnamese Natural Language Process Toolkit](https://github.com/undertheseanlp/underthesea)

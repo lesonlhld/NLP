@@ -1,4 +1,4 @@
-from underthesea import word_tokenize
+from underthesea import word_tokenize, dependency_parse
 from Models.helper import *
 from copy import deepcopy
 
@@ -17,7 +17,7 @@ relations = {
 }
 
 def prepare(sentence):
-    remove_tokens = ['là mấy giờ', 'thành phố', 'TP', 'có', '?', '.', ':', ',']
+    remove_tokens = ['là mấy giờ', 'thành phố', 'TP', 'có', '.', ':', ',']
     for token in remove_tokens:
         sentence = sentence.replace(token, '')
 
@@ -49,25 +49,26 @@ def getAction(stack, buffer):
         return 'REDUCE'
             
 def parser(sentence):
+    if not 'chạy' in sentence:
+        i = min([sentence.find(x) for x in ["đến", "từ", "lúc"] if (sentence.find(x) > 0)])
+        sentence = sentence[:i] + 'chạy ' + sentence[i:]
+        
     sentence = prepare(sentence)
     tokens = word_tokenize(sentence)
+    relation_types = dependency_parse(sentence)
+    relation_types = {x[0].replace(" ", "_"):x[2] for x in relation_types}
 
+    if '?' in tokens:
+        tokens.remove('?')
     for i in range(len(tokens)):
         tokens[i] = tokens[i].replace(" ", "_")
-    
-    # kiểm tra có động từ chạy trong câu hay chưa, nếu chưa thì thêm vào trước trạng từ đầu tiên
-    if not 'chạy' in tokens:
-        for i in range(len(tokens)):
-            if tokens[i] in ["đến", "từ", "lúc"]:
-                tokens.insert(i, "chạy")
-                break
 
     buffer = tokens
     stack = ['<ROOT>']
     arcs = {}
 
     parsing = "{0:6} {1:40} {2:80} {3}\n".format("Action","Stack","Buffer","Arcs")
-    parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format("",str(stack),str(buffer),str([arcs[x]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
+    parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format("",str(stack),str(buffer),str([relation_types[x[1]]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
     while len(buffer) > 0:
         action = getAction(stack, buffer)
         if action == 'LA':
@@ -87,9 +88,9 @@ def parser(sentence):
             stack.append(deepcopy(token))
         else:
             stack.pop()
-            
-        parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format(str(action),str(stack),str(buffer),str([arcs[x]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
-        
+
+        parsing = parsing + "{0:6} {1:40} {2:80} {3}\n".format(str(action),str(stack),str(buffer),str([relation_types[x[1]]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
+
     fileName = "./Output/output_a.txt"
     output = open(fileName,"a")
     output.write(str(parsing))
@@ -97,7 +98,7 @@ def parser(sentence):
 
     fileName = "./Output/output_b.txt"
     output = open(fileName,"a")
-    output.write(str([arcs[x]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
+    output.write(str([relation_types[x[1]]+str(x) for x in arcs]).replace('"','').replace("', '",'->').replace("'",'').replace("<ROOT>",'ROOT'))
     output.write("\n")
-
+    
     return arcs
