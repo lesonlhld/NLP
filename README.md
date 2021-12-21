@@ -28,7 +28,7 @@ python main.py
 
 * Kết quả khi chạy chương trình khi chạy trên Google Colab
 
-![Result](output/Result.png)
+![Result](Output/Result.png)
 
 ## Cấu trúc thư mục
 1. Thư mục **Input**: Các yêu cầu đầu vào của bài toán
