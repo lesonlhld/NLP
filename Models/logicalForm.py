@@ -24,7 +24,7 @@ def logicalForm(relations):
         rel_type, left, right = extract_relation(rel)
         if rel_type == 'PRED':
             continue
-        elif rel_type == 'NSUBJ':
+        elif rel_type == 'LSUBJ':
             vtype, vname, vvalue = right.split()
             variables[vname] = {'type': vtype, 'value': vvalue}
             logical_form = logical_form[:-1] + f"[AGENT ({right})]" + logical_form[-1]

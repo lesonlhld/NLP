@@ -4,7 +4,7 @@ from copy import deepcopy
 
 relations = {
     'run': {'<ROOT>': 'PRED'},
-    'train': {'run': 'NSUBJ', 'time': 'TIME'},
+    'train': {'run': 'LSUBJ', 'time': 'TIME'},
     'arrive': {'run': 'PREP'},
     'from': {'run': 'PREP'},
     'time': {'from': 'FROM-TIME', 'arrive': 'ARRIVE-TIME', 'train': 'RUN-TIME'},
