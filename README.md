@@ -41,7 +41,7 @@ python main.py
     * `grammaticalRelation.py`: Chứa class tạo quan hệ ngữ nghĩa
     * `helper.py`: Chứa các hàm hỗ trợ
     * `logicalForm.py`: Chứa class tạo dạng luận lý
-    * `maltParser.py`: Chứa class tạo văn phạm phụ thuộc dạng malt parser
+    * `parser.py`: Chứa class tạo văn phạm phụ thuộc dạng malt parser
     * `proceduralSemantics.py`: Chứa class tạo ngữ nghĩa thủ tục
     * `query.py`: Chứa class truy xuất dữ liệu
 4. File `main.py`: Entry point của chương trình
