@@ -26,6 +26,10 @@ pip install underthesea
 python main.py
 ```
 
+* Kết quả khi chạy chương trình khi chạy trên Google Colab
+
+![Result](output/result.png)
+
 ## Cấu trúc thư mục
 1. Thư mục **Input**: Các yêu cầu đầu vào của bài toán
     * `questions.txt`: Chứa danh sách các câu hỏi, mỗi câu nằm trên 1 dòng.
