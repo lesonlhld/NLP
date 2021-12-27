@@ -1,10 +1,10 @@
 def proceduralSemantics(logical_form):
-    lf_components = logical_form[logical_form.index('('):][1:-1].split('[')
-    lf_components = [component[:-1] if component[-1] == ']' else component for component in lf_components]
+    logical_forms = logical_form[logical_form.index('('):][1:-1].split('[')
+    logical_forms = [t[:-1] if t[-1] == ']' else t for t in logical_forms]
 
     fields = {}
-    for component in lf_components:
-        tmp = component.replace('(', '').replace(')', '').split()
+    for t in logical_forms:
+        tmp = t.replace('(', '').replace(')', '').split()
         if len(tmp) == 2:
             continue
         

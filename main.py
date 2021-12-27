@@ -14,8 +14,8 @@ def main():
         arcs = parser(q)  # Văn phạm phụ thuộc và quan hệ ngữ nghĩa
         grammarical_relation = grammaticalRelation(arcs)  # Quan hệ văn phạm
         logical_form = logicalForm(grammarical_relation)  # Dạng luận lý
-        ps = proceduralSemantics(logical_form)  # Ngữ nghĩa thủ tục
-        result = query(ps)  # Truy xuất dữ liệu
+        procedural_semantic = proceduralSemantics(logical_form)  # Ngữ nghĩa thủ tục
+        result = query(procedural_semantic)  # Truy xuất dữ liệu
         print('Câu hỏi: ' + str(q) + '\nTrả lời: ' + str(', '.join(result)) + '\n')
 
 if __name__ == '__main__':
