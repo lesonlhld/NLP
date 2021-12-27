@@ -1,5 +1,3 @@
-from Models.helper import *
-
 def proceduralSemantics(logical_form):
     lf_components = logical_form[logical_form.index('('):][1:-1].split('[')
     lf_components = [component[:-1] if component[-1] == ']' else component for component in lf_components]

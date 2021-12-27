@@ -1,5 +1,3 @@
-from Models.helper import *
-
 def grammaticalRelation(arcs):
     tree = {}
     for item in arcs:
@@ -14,10 +12,10 @@ def grammaticalRelation(arcs):
         elif item_type == 'TIME':
             tree['TIME'] = child
         elif item_type == 'CITY-NAME':
-            if getType(parent) == 'arrive':
-                tree['TO-LOC'] = child
-            else:
+            if parent == 'từ':
                 tree['FROM-LOC'] = child
+            else:
+                tree['TO-LOC'] = child
         elif item_type == 'RUN-TIME':
             tree['RUN-TIME'] = 'GAP'
         elif item_type == 'WH-TRAIN':
@@ -25,10 +23,10 @@ def grammaticalRelation(arcs):
         elif item_type == 'WH-TIME':
             tree['TIME'] = 'GAP'
         elif item_type == 'WHERE':
-            if getType(parent) == 'arrive':
-                tree['TO-LOC'] = 'GAP'
-            else:
+            if parent == 'từ':
                 tree['FROM-LOC'] = 'GAP'
+            else:
+                tree['TO-LOC'] = 'GAP'
 
     relations = []
     variables = {}
