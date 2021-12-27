@@ -34,20 +34,20 @@ def grammaticalRelation(arcs):
     variables = {}
     for rel_type in tree:
         if rel_type == 'PRED':
-            variable = generateVariable()
-            variables[tree[rel_type]] = variable
-            relation = f"({variable} PRED {tree[rel_type]})"
+            variables[tree[rel_type]] = "r"
+            relation = f"({variables[tree[rel_type]]} PRED {tree[rel_type]})"
             relations.append(relation)
             break
         
+    i = 0
     for rel_type in tree:
         if rel_type == 'PRED':
             continue
-        variable = generateVariable()
-        variables[tree[rel_type]] = variable
+        variables[tree[rel_type]] = f"t{i}"
+        i = i + 1
        
         if rel_type == 'RUN-TIME':
-            relation = f"({variables[tree['PRED']]} TIME (TIME {variable} GAP))"
+            relation = f"({variables[tree['PRED']]} TIME (TIME {variables[tree[rel_type]]} GAP))"
         else:
             tk_type = None
             if rel_type == 'LSUBJ':
@@ -56,7 +56,7 @@ def grammaticalRelation(arcs):
                 tk_type = 'CITY-NAME'
             elif rel_type == 'TIME':
                 tk_type = 'TIME'
-            relation = f"({variables[tree['PRED']]} {rel_type} ({tk_type} {variable} {tree[rel_type]}))"
+            relation = f"({variables[tree['PRED']]} {rel_type} ({tk_type} {variables[tree[rel_type]]} {tree[rel_type]}))"
         relations.append(relation)
 
         

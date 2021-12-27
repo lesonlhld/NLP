@@ -3,14 +3,14 @@ def extract_relation(relation):
     first_space = relation.index(' ')
     second_space = relation.index(' ', first_space+1)
 
-    left_component = relation[:first_space]
+    left = relation[:first_space]
     relation_type = relation[first_space+1:second_space]
-    right_component = relation[second_space+1:]
+    right = relation[second_space+1:]
 
-    if right_component[0] == '(':
-        right_component = right_component[1:-1]
+    if right[0] == '(':
+        right = right[1:-1]
 
-    return relation_type, left_component, right_component
+    return relation_type, left, right
 
 def logicalForm(relations):
     logical_form = ""

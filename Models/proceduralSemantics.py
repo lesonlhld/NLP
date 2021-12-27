@@ -29,17 +29,19 @@ def proceduralSemantics(logical_form):
 
     ps = f""
 
+    i = 0
     has_gap = False
     for f in fields:
         if fields[f] == 'GAP':
             has_gap = True
-            fields[f] = generateVariable('t')
+            fields[f] = f"t{i}"
+            i = i + 1
             ps += f"?{fields[f]} "
 
     if has_gap:
         ps = f"PRINT-ALL " + ps
     else:
-        ps = f"CHECK " + ps
+        ps = f"FIND-ONE-TRUE " + ps
 
     ps += f"({dataset['NAME']}"
     for column in dataset['DATA']:
@@ -47,7 +49,8 @@ def proceduralSemantics(logical_form):
             ps += f" {dataset['DATA'][column]}"
         else:
             if column not in fields:
-                fields[column] = generateVariable('t')
+                fields[column] = f"t{i}"
+                i = i + 1
             ps += f" ?{fields[column]}"
     ps += f")"
 
