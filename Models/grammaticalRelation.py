@@ -32,31 +32,31 @@ def grammaticalRelation(arcs):
 
     relations = []
     variables = {}
-    for rel_type in tree:
-        if rel_type == 'PRED':
-            variables[tree[rel_type]] = "r"
-            relation = f"({variables[tree[rel_type]]} PRED {tree[rel_type]})"
+    for relation_type in tree:
+        if relation_type == 'PRED':
+            variables[tree[relation_type]] = "r"
+            relation = f"({variables[tree[relation_type]]} PRED {tree[relation_type]})"
             relations.append(relation)
             break
         
     i = 0
-    for rel_type in tree:
-        if rel_type == 'PRED':
+    for relation_type in tree:
+        if relation_type == 'PRED':
             continue
-        variables[tree[rel_type]] = f"t{i}"
+        variables[tree[relation_type]] = f"t{i}"
         i = i + 1
        
-        if rel_type == 'RUN-TIME':
-            relation = f"({variables[tree['PRED']]} TIME (TIME {variables[tree[rel_type]]} GAP))"
+        if relation_type == 'RUN-TIME':
+            relation = f"({variables[tree['PRED']]} TIME (TIME {variables[tree[relation_type]]} GAP))"
         else:
-            tk_type = None
-            if rel_type == 'LSUBJ':
-                tk_type = 'TRAIN-NAME'
-            elif rel_type == 'TO-LOC' or rel_type == 'FROM-LOC':
-                tk_type = 'CITY-NAME'
-            elif rel_type == 'TIME':
-                tk_type = 'TIME'
-            relation = f"({variables[tree['PRED']]} {rel_type} ({tk_type} {variables[tree[rel_type]]} {tree[rel_type]}))"
+            token_type = None
+            if relation_type == 'LSUBJ':
+                token_type = 'TRAIN-NAME'
+            elif relation_type == 'TO-LOC' or relation_type == 'FROM-LOC':
+                token_type = 'CITY-NAME'
+            elif relation_type == 'TIME':
+                token_type = 'TIME'
+            relation = f"({variables[tree['PRED']]} {relation_type} ({token_type} {variables[tree[relation_type]]} {tree[relation_type]}))"
         relations.append(relation)
 
         

@@ -16,22 +16,22 @@ def logicalForm(relations):
     logical_form = ""
     variables = {}
     for rel in relations:
-        rel_type, left, right = extract_relation(rel)
-        if rel_type == 'PRED':
+        relation_type, left, right = extract_relation(rel)
+        if relation_type == 'PRED':
             logical_form += f"({right} {left})"
             variables[left] = {'type': 'PRED', 'value': right}
     for rel in relations:
-        rel_type, left, right = extract_relation(rel)
-        if rel_type == 'PRED':
+        relation_type, left, right = extract_relation(rel)
+        if relation_type == 'PRED':
             continue
-        elif rel_type == 'LSUBJ':
+        elif relation_type == 'LSUBJ':
             vtype, vname, vvalue = right.split()
             variables[vname] = {'type': vtype, 'value': vvalue}
             logical_form = logical_form[:-1] + f"[AGENT ({right})]" + logical_form[-1]
         else:
             vtype, vname, vvalue = right.split()
-            variables[vname] = {'type': rel_type, 'value': vvalue}
-            logical_form = logical_form[:-1] + f"[{rel_type} ({right})]" + logical_form[-1]
+            variables[vname] = {'type': relation_type, 'value': vvalue}
+            logical_form = logical_form[:-1] + f"[{relation_type} ({right})]" + logical_form[-1]
 
     has_gap = False
     for vname in variables:
